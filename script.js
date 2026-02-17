@@ -23,16 +23,37 @@ slides[index].classList.add("active");
 
 let popup = document.getElementById("popup");
 let popupImg = document.getElementById("popup-img");
+let galleryImages = document.querySelectorAll(".gallery img");
+let currentImageIndex = 0;
 
-document.querySelectorAll(".gallery img").forEach(img => {
+galleryImages.forEach((img, index) => {
 
 img.addEventListener("click", function(){
 
 popup.style.display = "flex";
 popupImg.src = this.src;
+currentImageIndex = index;
 
 });
 
+});
+
+// NEXT BUTTON
+document.getElementById("next-btn").addEventListener("click", function(){
+currentImageIndex++;
+if(currentImageIndex >= galleryImages.length){
+currentImageIndex = 0;
+}
+popupImg.src = galleryImages[currentImageIndex].src;
+});
+
+// PREVIOUS BUTTON
+document.getElementById("prev-btn").addEventListener("click", function(){
+currentImageIndex--;
+if(currentImageIndex < 0){
+currentImageIndex = galleryImages.length - 1;
+}
+popupImg.src = galleryImages[currentImageIndex].src;
 });
 
 

@@ -501,6 +501,35 @@ right:30px;
 color:white;
 font-size:35px;
 cursor:pointer;
+z-index:10000;
+}
+
+/* POPUP NAVIGATION BUTTONS */
+.popup-nav{
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+background:rgba(255,255,255,0.3);
+color:white;
+border:none;
+font-size:30px;
+padding:15px 20px;
+cursor:pointer;
+border-radius:5px;
+transition:0.3s;
+z-index:10000;
+}
+
+.popup-nav:hover{
+background:rgba(255,255,255,0.6);
+}
+
+.prev-btn{
+left:20px;
+}
+
+.next-btn{
+right:20px;
 }
 
 /* TOP BUTTON */
