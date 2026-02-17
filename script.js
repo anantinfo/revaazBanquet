@@ -89,8 +89,23 @@ behavior:"smooth"
 const toggle = document.getElementById("menu-toggle");
 const nav = document.getElementById("nav-menu");
 
-toggle.addEventListener("click", () => {
+/* Toggle menu on hamburger click */
+toggle.addEventListener("click", (e) => {
+  e.stopPropagation();
   nav.classList.toggle("active");
 });
 
+/* Close menu when clicking menu link */
+document.querySelectorAll("#nav-menu a").forEach(link => {
+  link.addEventListener("click", () => {
+    nav.classList.remove("active");
+  });
+});
+
+/* Close menu when clicking outside */
+document.addEventListener("click", (e) => {
+  if (!nav.contains(e.target) && !toggle.contains(e.target)) {
+    nav.classList.remove("active");
+  }
+});
 
